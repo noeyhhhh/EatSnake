@@ -1,115 +1,43 @@
 {
-  "name": "vue-h5-template",
-  "version": "1.0.0",
+  "name": "dota2",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "dev:test": "vite --mode test",
-    "dev:prod": "vite --mode production",
-    "build": "vue-tsc --noEmit && vite build",
-    "report": "cross-env REPORT=true npm run build",
-    "preview": "vite preview",
-    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
-    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "lint:lint-staged": "lint-staged",
-    "prepare": "husky install",
-    "deps": "yarn upgrade-interactive --latest",
-    "commit": "git add . && git-cz"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@nutui/nutui": "^3.2.2",
-    "@varlet/ui": "^1.27.20",
-    "@vueuse/core": "9.2.0",
-    "@vueuse/integrations": "9.2.0",
-    "axios": "0.27.2",
-    "pinia": "^2.0.22",
-    "pinia-plugin-persistedstate": "^2.1.1",
-    "universal-cookie": "^4.0.4",
-    "vant": "^3.6.2",
-    "vue": "^3.2.39",
-    "vue-global-api": "^0.4.1",
-    "vue-i18n": "^9.2.2",
-    "vue-router": "^4.1.5"
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "@vitejs/plugin-legacy": "^2.1.0",
-    "@vitejs/plugin-vue": "^3.1.0",
-    "@vitejs/plugin-vue-jsx": "^2.0.1",
-    "amfe-flexible": "^2.2.1",
-    "autoprefixer": "^10.4.8",
-    "cnjm-postcss-px-to-viewport": "^1.0.0",
-    "consola": "^2.15.3",
-    "cross-env": "^7.0.3",
-    "eruda": "^2.5.0",
-    "eslint": "^8.23.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.4.0",
-    "git-cz": "^4.9.0",
-    "husky": "8.0.1",
-    "lint-staged": "13.0.3",
-    "mockjs": "^1.1.0",
-    "postcss": "^8.4.16",
-    "postcss-html": "1.5.0",
-    "postcss-less": "^6.0.0",
-    "prettier": "^2.7.1",
-    "rollup-plugin-visualizer": "^5.8.1",
-    "stylelint": "^14.11.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-recommended": "^9.0.0",
-    "stylelint-config-recommended-vue": "^1.4.0",
-    "stylelint-config-standard": "^28.0.0",
-    "stylelint-order": "^5.0.0",
-    "terser": "^5.15.0",
-    "typescript": "^4.6.3",
-    "unplugin-auto-import": "^0.11.2",
-    "unplugin-vue-components": "^0.22.4",
-    "vite": "^3.1.0",
-    "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-eruda": "^1.0.1",
-    "vite-plugin-imagemin": "^0.6.1",
-    "vite-plugin-mock": "^2.9.6",
-    "vite-plugin-pages": "^0.26.0",
-    "vite-plugin-progress": "^0.0.3",
-    "vite-plugin-restart": "^0.2.0",
-    "vite-plugin-style-import": "^2.0.0",
-    "vite-plugin-svg-icons": "^2.0.1",
-    "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vue-eslint-parser": "^9.0.3",
-    "vue-tsc": "^0.40.13"
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
   },
-  "resolutions": {
-    "bin-wrapper": "npm:bin-wrapper-china"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
-      "prettier --write--parser json"
-    ],
-    "package.json": [
-      "prettier --write"
-    ],
-    "*.vue": [
-      "eslint --fix",
-      "prettier --write",
-      "stylelint --fix"
-    ],
-    "*.{scss,less,styl,html}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
-  }
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }
