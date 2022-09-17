@@ -1,17 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <p>
+    Ask a yes/no question:
+    <input v-model="question" />
+  </p>
+  <p>{{ answer }}</p>
+
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      question: '',
+      answer: 'Questions usually contain a question mark. ;-)'
+    }
+  },
+  watch: {
+    // 每当 question 改变时，这个函数就会执行
+    question(newQuestion) {
+      console.log('***')
+      if (newQuestion.includes('?')) {
+        this.getAnswer()
+      }
+    }
+  },
+  methods: {
+    getAnswer() {
+      console.log(1223)
+    }
   }
 }
+
 </script>
 
 <style>
