@@ -1,47 +1,62 @@
 <template>
-  <p>
-    Ask a yes/no question:
-    <input v-model="question" />
-  </p>
-  <p>{{ answer }}</p>
-
-
+  <div class="demo">
+    <button
+        v-for="(_,tab)  in tabs"
+        :key="tab"
+        @click=" currentTab = tab"
+    >
+      {{ tab }}
+    </button>
+    <component :is='tabs[currentTab]' />
+  </div>
 </template>
 
-<script>
-
-export default {
-  data() {
-    return {
-      question: '',
-      answer: 'Questions usually contain a question mark. ;-)'
-    }
-  },
-  watch: {
-    // 每当 question 改变时，这个函数就会执行
-    question(newQuestion) {
-      console.log('***')
-      if (newQuestion.includes('?')) {
-        this.getAnswer()
-      }
-    }
-  },
-  methods: {
-    getAnswer() {
-      console.log(1223)
-    }
-  }
+<script setup>
+import ComponentTest from "@/components/ComponentTest";
+import Home from './components/Home'
+import Posts from './components/Posts'
+import Archive from './components/Archive'
+import {ref} from "vue";
+const tabs = {
+  Home,
+  Posts,
+  Archive
 }
+const currentTab = ref('Home')
+
 
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.demo {
+  font-family: sans-serif;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 20px 30px;
+  margin-top: 1em;
+  margin-bottom: 40px;
+  user-select: none;
+  overflow-x: auto;
+}
+
+.tab-button {
+  padding: 6px 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #f0f0f0;
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.tab-button:hover {
+  background: #e0e0e0;
+}
+.tab-button.active {
+  background: #e0e0e0;
+}
+.tab {
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 </style>
