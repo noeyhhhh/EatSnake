@@ -1,0 +1,46 @@
+<template>
+    <div class="logo" />
+    <a-menu
+        v-model:selectedKeys="selectedKeys"
+        theme="dark"
+        mode="horizontal"
+        :style="{ lineHeight: '64px' }"
+    >
+      <a-menu-item key="1">1</a-menu-item>
+      <a-menu-item key="2">nav 2</a-menu-item>
+      <a-menu-item key="3">nav 3</a-menu-item>
+    </a-menu>
+</template>
+<script>
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  components: {
+    UserOutlined,
+    LaptopOutlined,
+    NotificationOutlined,
+  },
+
+  setup() {
+    return {
+      selectedKeys1: ref(['2']),
+      selectedKeys2: ref(['1']),
+      collapsed: ref(false),
+      openKeys: ref(['sub1']),
+    };
+  },
+  data() {
+    return {
+    }
+  },
+  computed: {
+    routes() {
+      return this.$router.options.routes
+    }
+  }
+
+});
+</script>
+<style>
+
+</style>
