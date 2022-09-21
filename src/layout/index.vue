@@ -6,9 +6,8 @@
     <a-layout-content style="padding: 0 50px">
       <BreadCrumb></BreadCrumb>
       <a-layout style="padding: 24px 0; background: #fff">
-        <SliderBar />
         <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
-          <router-view />
+          123
         </a-layout-content>
       </a-layout>
     </a-layout-content>
@@ -20,7 +19,6 @@
 
 <script setup>
 import NavBar from './NavBar'
-import SliderBar from './SliderBar'
 import BreadCrumb from './BreadCrumb'
 </script>
 
@@ -32,12 +30,10 @@ import BreadCrumb from './BreadCrumb'
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
 }
-
 .ant-row-rtl #components-layout-demo-top-side-2 .logo {
   float: right;
   margin: 16px 0 16px 24px;
 }
-
 .site-layout-background {
   background: #fff;
 }

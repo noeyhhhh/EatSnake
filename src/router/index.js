@@ -1,23 +1,25 @@
 // import { createApp } from "vue";
 import { createRouter, createWebHistory } from 'vue-router'
-// import App from '../App'
-import layout from '../layout'
-const routes = [
-    {
-        path: '/home',
-        component: layout
-    },
+import App from '../App'
+const constRoutes = [
     {
         path: '/',
         redirect: '/home',
-        component: layout
+        hidden: true
+    },
+    {
+        path: '/home',
+        name: '主页',
+        component: () => import('@/pages/Home')
     },
     {
         path: '/hero',
+        name: '英雄',
+        component: () => import('@/pages/Hero')
     }
 ]
 const router = createRouter({
     history:createWebHistory(),
-    routes,
+    routes: constRoutes,
 })
 export default router

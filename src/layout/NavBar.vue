@@ -6,9 +6,8 @@
         mode="horizontal"
         :style="{ lineHeight: '64px' }"
     >
-      <a-menu-item key="1">1</a-menu-item>
-      <a-menu-item key="2">nav 2</a-menu-item>
-      <a-menu-item key="3">nav 3</a-menu-item>
+      <a-menu-item v-for="(route, index) in routes" :key="index">
+        <router-view :to="route.path.slice(1)">{{ route.name }}</router-view></a-menu-item>
     </a-menu>
 </template>
 <script>
