@@ -7,7 +7,7 @@
         :style="{ lineHeight: '64px' }"
     >
       <a-menu-item v-for="(route, index) in routes" :key="index">
-        <router-view :to="route.path.slice(1)">{{ route.name }}</router-view></a-menu-item>
+        <router-link :to="route.path.slice(1)">{{ route.name }}</router-link></a-menu-item>
     </a-menu>
 </template>
 <script>
