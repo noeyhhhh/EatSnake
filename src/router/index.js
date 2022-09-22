@@ -16,6 +16,11 @@ const constRoutes = [
         path: '/hero',
         name: '英雄',
         component: () => import('@/pages/Hero')
+    },
+    {
+        path: '/item',
+        name: '物品',
+        component: ()=> import('@/pages/Item')
     }
 ]
 const router = createRouter({
