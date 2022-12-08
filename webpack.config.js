@@ -73,7 +73,12 @@ module.exports = {
     },
     // 配置webpack插件
     plugins: [
-        new HTMLWebpackPlugin()
+        // 详细的plugins配置
+        // html-webpack-plugin
+        // 引入有结构的html文件
+        new HTMLWebpackPlugin({
+            template: './src/index.html'
+        })
     ],
     // 用来设置引用模块
     resolve: {
