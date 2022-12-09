@@ -1,3 +1,4 @@
+@bg-color:#b7d4a8;
 *{
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body{
   width: 360px;
   height: 420px;
   margin: 100px auto;
-  background-color: #b7d4a8;
+  background-color: @bg-color;
   border:18px solid #000000;
   border-radius:20px;
   display: flex;
@@ -21,6 +22,14 @@ body{
     width: 304px;
     height: 304px;
     border: 2px solid #000000;
+    #snake{
+      &>div{
+        width: 10px;
+        height: 10px;
+        background-color: #000000;
+        border: 1px solid @bg-color;
+      }
+    }
   }
   #information{
     width: 304px;
