@@ -8,7 +8,11 @@ module.exports = {
     output: {
         path: path.resolve(__dirname,'dist'),
         // 打包后的文件名
-        filename: "bundle.js"
+        filename: "bundle.js",
+        environment: {
+            // arrowFunction: false,
+            // const: false
+        }
     },
     // 指定webpack打包要使用的模块
     module: {
