@@ -16,9 +16,18 @@ class Snake{
         return this.head.offsetTop
     }
     set X(val){
+        if(val === this.X){
+            return
+        }
+        if(val < 0 || val > 290){
+            throw new Error('蛇撞墙了')
+        }
         this.head.style.left = val + 'px'
     }
     set Y(val){
+        if(val === this.Y){
+            return
+        }
         this.head.style.top = val + 'px'
     }
 

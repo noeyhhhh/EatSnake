@@ -43,7 +43,7 @@ class GameControl{
         }
         this.snake.X = X
         this.snake.Y = Y
-        // setTimeout(this.run.bind(this),300-(this.scorepanel.level)*30)
+        setTimeout(this.run.bind(this),300-(this.scorepanel.level)*30)
     }
 
 }
