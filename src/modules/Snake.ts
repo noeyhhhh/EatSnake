@@ -5,7 +5,7 @@ class Snake{
     constructor() {
         this.element = document.getElementById('snake')!
         // 蛇头
-        this.head = document.querySelector('#snake>div')!
+        this.head = document.querySelector('#snake>div') as HTMLElement
         // 整个蛇元素
         this.bodies = this.element.getElementsByTagName('div')!
     }
