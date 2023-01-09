@@ -1,7 +1,7 @@
 // 分数类
 class ScorePanel{
     score = 0;
-    level = 0;
+    level = 1;
     // 最大等级
     maxLevel:number;
     upScore: number;

@@ -7,6 +7,7 @@ class GameControl{
     food:Food
     scorepanel:ScorePanel
     direction:string = 'Right'
+    isAlive = true
     constructor() {
         this.snake = new Snake()
         this.food = new Food()
@@ -41,9 +42,25 @@ class GameControl{
                 X += 10;
                 break
         }
-        this.snake.X = X
-        this.snake.Y = Y
-        setTimeout(this.run.bind(this),300-(this.scorepanel.level)*30)
+        this.checkEat(X,Y)
+        try{
+            this.snake.X = X
+            this.snake.Y = Y
+        }catch (error){
+            // @ts-ignore 错误提示
+            alert(error.message)
+            this.isAlive = false
+        }
+
+        this.isAlive && setTimeout(this.run.bind(this),300-(this.scorepanel.level)*30)
+    }
+    checkEat(X:number,Y:number){
+        if(X === this.food.X && Y === this.food.Y) {
+            this.food.change()
+            this.scorepanel.addScore()
+            this.snake.addBody()
+            this.snake.moveBody()
+        }
     }
 
 }
