@@ -16,26 +16,29 @@ class Snake{
         return this.head.offsetTop
     }
     set X(val){
-        if(val === this.X){
+        if(this.X === val){
             return
         }
         if(val < 0 || val > 290){
             throw new Error('蛇撞墙了')
         }
         this.head.style.left = val + 'px'
+        this.moveBody()
     }
     set Y(val){
-        if(val === this.Y){
+        if(this.Y === val){
             return
         }
         if(val < 0 || val > 290){
             throw new Error('蛇撞墙了')
         }
         this.head.style.top = val + 'px'
+        this.moveBody()
     }
 
     // 蛇身体增加一格方法
     addBody(){
+        console.log('add')
         this.element.insertAdjacentHTML('beforeend',"<div></div>")
     }
     moveBody(){

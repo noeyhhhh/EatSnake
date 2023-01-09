@@ -59,7 +59,6 @@ class GameControl{
             this.food.change()
             this.scorepanel.addScore()
             this.snake.addBody()
-            this.snake.moveBody()
         }
     }
 
