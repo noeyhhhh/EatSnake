@@ -6,7 +6,7 @@ class GameControl{
     snake:Snake
     food:Food
     scorepanel:ScorePanel
-    direction:string = 'Right'
+    direction:string = 'ArrowRight'
     isAlive = true
     constructor() {
         this.snake = new Snake()
@@ -26,19 +26,15 @@ class GameControl{
         let Y = this.snake.Y
         switch (this.direction){
             case "ArrowUp":
-            case "Up":
                 Y -= 10;
                 break
             case "ArrowDown":
-            case "Down":
                 Y += 10;
                 break
             case "ArrowLeft":
-            case "Left":
                 X -= 10;
                 break
             case "ArrowRight":
-            case "Right":
                 X += 10;
                 break
         }
@@ -52,7 +48,7 @@ class GameControl{
             this.isAlive = false
         }
 
-        this.isAlive && setTimeout(this.run.bind(this),300-(this.scorepanel.level)*30)
+            this.isAlive && setTimeout(this.run.bind(this),300-(this.scorepanel.level-1)*30)
     }
     checkEat(X:number,Y:number){
         if(X === this.food.X && Y === this.food.Y) {
