@@ -68,6 +68,7 @@ class Snake{
         }
     }
     checkBodyAndHead(){
+        console.log('move')
         for(let i = 1; i<this.bodies.length; i++){
             let bd = this.bodies[i] as HTMLElement
             if( this.X === bd.offsetLeft && this.Y === bd.offsetTop ){

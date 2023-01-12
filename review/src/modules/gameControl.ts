@@ -16,6 +16,7 @@ class GameControl{
 
     }
     initGame(){
+        this.food.foodChange()
         document.addEventListener('keydown',this.keyboardEvent.bind(this))
         this.run()
     }
@@ -28,21 +29,18 @@ class GameControl{
         switch(this.direction){
             case "ArrowRight":
                 X += 10
-                console.log('1')
                 break
             case "ArrowLeft":
                 X -= 10
-                console.log('1')
                 break
             case "ArrowUp":
                 Y -= 10
-                console.log('1')
                 break
             case "ArrowDown":
                 Y += 10
-                console.log('1')
                 break
         }
+        this.checkEatFood(X,Y)
         try{
             this.snake.X = X
             this.snake.Y =Y
@@ -50,11 +48,10 @@ class GameControl{
             alert(e.message)
             this.isAlive = false
         }
-        this.checkEatFood()
         this.isAlive && setTimeout(this.run.bind(this),300-(this.scorepanel.level)*10)
     }
-    checkEatFood(){
-        if(this.snake.X === this.food.foodX && this.snake.Y === this.food.foodY){
+    checkEatFood(X:number,Y:number){
+        if(X === this.food.foodX && Y === this.food.foodY){
             this.scorepanel.addScore()
             this.food.foodChange()
             this.snake.addBody()
